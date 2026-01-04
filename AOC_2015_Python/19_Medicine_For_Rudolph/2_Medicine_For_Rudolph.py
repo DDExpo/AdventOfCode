@@ -10,15 +10,13 @@ with open(Path(__file__).resolve().parent / "task_data", "r") as file:
     
     for line in file.readlines():
         line = line.strip()
-        
-        if not line: continue
-        
-        if 0 < len(line) < 50:
-            molecules = line.split("=>")
-            possible_replacements[molecules[0].strip()].append(molecules[1].strip())
-        else:
+
+        if len(line) > 100 or not line:
             medicine_molecule = line.strip()
-    
+            continue
+
+        molecules = line.split("=>")
+        possible_replacements[molecules[0].strip()].append(molecules[1].strip())
 
     pprint(possible_replacements)
     print(len(medicine_molecule))
