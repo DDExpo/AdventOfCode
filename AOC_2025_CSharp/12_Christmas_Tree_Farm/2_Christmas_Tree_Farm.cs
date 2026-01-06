@@ -1,7 +1,5 @@
 
 
-using System.Runtime.InteropServices;
-
 class SolutionDay02
 {
     private static readonly Dictionary<string, string[]> cables = [];
@@ -23,9 +21,8 @@ class SolutionDay02
 
     private static long Solve()
     {
-        var fft_dac = Dfs("fft", "dac");
-        if (fft_dac > 0) return Dfs("svr", "fft") * fft_dac * Dfs("dac", "out");
-        else return Dfs("svr", "dac") * Dfs("dac", "fft") * Dfs("fft", "out");
+        return Dfs("svr", "fft") * Dfs("fft", "dac") * Dfs("dac", "out") +
+               Dfs("svr", "dac") * Dfs("dac", "fft") * Dfs("fft", "out");
     }
     private static long Dfs(string start, string end)
     {
