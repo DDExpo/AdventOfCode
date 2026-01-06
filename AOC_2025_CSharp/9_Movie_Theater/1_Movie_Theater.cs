@@ -25,7 +25,7 @@ class SolutionDay01
             for (int ii = i + 1; ii < tiles.Length; ii++)
             {
                 var(x, y, x2, y2) = (tiles[i].Item1, tiles[i].Item2, tiles[ii].Item1, tiles[ii].Item2);
-                answer = Math.Max(answer, (Math.Abs(x - x2) + 1) * (Math.Abs(y - y2) + 1));
+                answer = Math.Max(answer, (x - x2 + 1) * (y - y2 + 1));
             }
         return answer;
     }

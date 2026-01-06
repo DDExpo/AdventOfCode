@@ -1,6 +1,4 @@
 
-using System.Linq.Expressions;
-
 class SolutionDay02
 {
     record Manual(string Indicator, IReadOnlyList<IReadOnlyList<int>> Buttons, IReadOnlyList<int> Joltages);
